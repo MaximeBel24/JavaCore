@@ -2,9 +2,19 @@ package javacore.chapter02.condition.exercise;
 
 public class FrenchRevenueTaxCalculator {
 
+    public static void calculateTax(int index, double salaryAfterAbatement, int taxBracket, double taxBracketFull ){
+        System.out.println(salaryAfterAbatement + "€ correspond à la " + index +"eme tranche.");
+        double taxableSalary = salaryAfterAbatement - taxBracket;
+        double taxAmount = (taxableSalary * 30 / 100) + taxBracketFull;
+        double netSalary = salaryAfterAbatement - taxAmount;
+        double totalPercent = taxAmount * 100 / salaryAfterAbatement;
+        System.out.println("Après imposition vous avez été taxé à hauteur de " + Math.round(totalPercent) + "%, soit " + taxAmount + "€.");
+        System.out.println("Votre salaire net est de " + netSalary + "€.");
+    }
+
     public static void main(String[] args) {
-        //10 000, 22 000, 40 000, 100 000, 200 000
-        double salary = 220000;
+        //Tested values : 10 000, 22 000, 40 000, 100 000, 200 000
+        double salary = 100000;
         System.out.println("Votre salaire annuel est de " + salary + "€.");
 
         int abatement = 10;
@@ -22,11 +32,6 @@ public class FrenchRevenueTaxCalculator {
         int fourthTaxBracket = 177106;
         double fourthTaxBracketFull = ((fourthTaxBracket - thirdTaxBracket) * 41 / 100) + thirdTaxBracketFull;
 
-        double netSalary;
-        double totalPercent;
-        double taxableSalary;
-        double taxAmount;
-
         if(salaryAfterAbatement <= firstTaxBracket){
 
             System.out.println(salaryAfterAbatement + "€ correspond à la 1ere tranche.");
@@ -35,47 +40,21 @@ public class FrenchRevenueTaxCalculator {
         }
         else if (salaryAfterAbatement <= secondTaxBracket) {
 
-            System.out.println(salaryAfterAbatement + "€ correspond à la 2eme tranche.");
-            taxableSalary = salaryAfterAbatement - firstTaxBracket;
-            taxAmount = taxableSalary * 11 / 100;
-            netSalary = salaryAfterAbatement - taxAmount;
-            totalPercent = taxAmount * 100 / salaryAfterAbatement;
-            System.out.println("Après imposition vous avez été taxé à hauteur de " + totalPercent + "%, soit " + taxAmount + "€.");
-            System.out.println("Votre salaire net est de " + netSalary + "€.");
+            calculateTax(2, salaryAfterAbatement, firstTaxBracket, 0);
 
         }
         else if (salaryAfterAbatement <= thirdTaxBracket) {
 
-            System.out.println(salaryAfterAbatement + "€ correspond à la 3eme tranche.");
-            taxableSalary = salaryAfterAbatement - secondTaxBracket;
-            taxAmount = (taxableSalary * 30 / 100) + secondTaxBracketFull;
-            netSalary = salaryAfterAbatement - taxAmount;
-            totalPercent = taxAmount * 100 / salaryAfterAbatement;
-            System.out.println("Après imposition vous avez été taxé à hauteur de " + totalPercent + "%, soit " + taxAmount + "€.");
-            System.out.println("Votre salaire net est de " + netSalary + "€.");
-
+            calculateTax(3, salaryAfterAbatement, secondTaxBracket, secondTaxBracketFull);
 
         }
         else if (salaryAfterAbatement <= fourthTaxBracket) {
 
-            System.out.println(salaryAfterAbatement + "€ correspond à la 4eme tranche.");
-            taxableSalary = salaryAfterAbatement - thirdTaxBracket;
-            taxAmount = (taxableSalary * 41 / 100) + thirdTaxBracketFull;
-            netSalary = salaryAfterAbatement - taxAmount;
-            totalPercent = taxAmount * 100 / salaryAfterAbatement;
-            System.out.println("Après imposition vous avez été taxé à hauteur de " + totalPercent + "%, soit " + taxAmount + "€.");
-            System.out.println("Votre salaire net est de " + netSalary + "€.");
-
+            calculateTax(4, salaryAfterAbatement, thirdTaxBracket, thirdTaxBracketFull);
         }
         else {
 
-            System.out.println(salaryAfterAbatement + "€ correspond à la 5eme tranche.");
-            taxableSalary = salaryAfterAbatement - fourthTaxBracket;
-            taxAmount = (taxableSalary * 45 / 100) + fourthTaxBracketFull;
-            netSalary = salaryAfterAbatement - taxAmount;
-            totalPercent = taxAmount * 100 / salaryAfterAbatement;
-            System.out.println("Après imposition vous avez été taxé à hauteur de " + totalPercent + "%, soit " + taxAmount + "€.");
-            System.out.println("Votre salaire net est de " + netSalary + "€.");
+            calculateTax(5, salaryAfterAbatement, fourthTaxBracket, fourthTaxBracketFull);
 
         }
     }
