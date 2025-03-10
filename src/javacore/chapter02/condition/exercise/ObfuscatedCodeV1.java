@@ -4,7 +4,7 @@ public class ObfuscatedCodeV1 {
 
     public static void main(String[] args) {
 
-        int typeOfVehicle = 3; // Type de véhicule (1 = Electrique, 2 = Essence, 3 = Diesel)
+        int typeOfVehicle = 3; // Type de véhicule (1 = Electrique, 2 = Hybride, 3 = Thermique)
 
         double price = 100;
 
@@ -17,10 +17,10 @@ public class ObfuscatedCodeV1 {
             environmentalTax = price * 0.10; // Montant de taxe pour véhicule électrique
         }
         if (typeOfVehicle == 2) {
-            environmentalTax = price * 0.20; // Montant de taxe pour véhicule essence
+            environmentalTax = price * 0.20; // Montant de taxe pour véhicule hybride
         }
         if (typeOfVehicle == 3) {
-            environmentalTax = price * 0.35; // Montant de taxe pour véhicule diesel
+            environmentalTax = price * 0.35; // Montant de taxe pour véhicule thermique
         }
         if (isClean) {
             environmentalTax -= (price * ecologicalBonus); // Application d'un bonus écologique si le véhicule est propre
