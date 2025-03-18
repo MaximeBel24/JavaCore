@@ -22,7 +22,7 @@ public class FibonacciCalculator {
             result = firstNumber + secondNumber;
 
             if (result % 2 == 0){
-                System.out.println(result + " (paire)");
+                System.out.println(result + " (paire) ");
                 evenNbCounter++;
             } else {
                 System.out.println(result);
