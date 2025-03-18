@@ -9,7 +9,7 @@ public class FibonacciCalculator {
         int result;
 
         int counter = 0;
-        int limit = 10;
+        int limit = 1000;
 
         int evenNbCounter = 0;
 
@@ -18,15 +18,19 @@ public class FibonacciCalculator {
         System.out.println(secondNumber);
 
         while (counter <= limit - 2){
+
             result = firstNumber + secondNumber;
+
             if (result % 2 == 0){
                 System.out.println(result + " (paire)");
                 evenNbCounter++;
             } else {
                 System.out.println(result);
             }
+
             firstNumber = secondNumber;
             secondNumber = result;
+
             counter++;
         }
 
