@@ -4,22 +4,25 @@ public class FibonacciCalculator {
 
     public static void main(String[] args){
 
-        int firstNumber = 0;
-        int secondNumber = 1;
-        int result;
+        final int FIRST_TERM = 0;
+        final int SECOND_TERM = 1;
 
         int counter = 0;
         int limit = 1000;
 
+        System.out.println("Les " + limit + " premiers termes de la suite de Fibonacci : ");
+        System.out.println(FIRST_TERM);
+        System.out.println(SECOND_TERM);
+
+        int currentFirstTerm = FIRST_TERM;
+        int currentSecondTerm = SECOND_TERM;
+        int result;
+
         int evenNbCounter = 0;
 
-        System.out.println("Les " + limit + " premiers termes de la suite de Fibonacci : ");
-        System.out.println(firstNumber);
-        System.out.println(secondNumber);
+        while (counter <= limit - 2){ // -2 car les 2 premiers termes sont affichés avant la boucle
 
-        while (counter <= limit - 2){
-
-            result = firstNumber + secondNumber;
+            result = currentFirstTerm + currentSecondTerm;
 
             if (result % 2 == 0){
                 System.out.println(result + " (paire) ");
@@ -28,8 +31,8 @@ public class FibonacciCalculator {
                 System.out.println(result);
             }
 
-            firstNumber = secondNumber;
-            secondNumber = result;
+            currentFirstTerm = currentSecondTerm;
+            currentSecondTerm = result;
 
             counter++;
         }
