@@ -4,20 +4,19 @@ public class PerfectNumberFinder {
 
     public static void main(String[] args){
 
-        int end = 100000;
+        int max = 100000;
 
-        for (int start = 1; start <= end ; start++){
+        for (int potentialPerfectNumber = 1; potentialPerfectNumber <= max ; potentialPerfectNumber++){
 
-            int result = 0;
+            int sumOfDivisors = 0;
 
-            for (int divisor = 1; divisor < start; divisor++ ){
-                int moduloVerifier = start % divisor;
-                if (moduloVerifier == 0){
-                    result += divisor;
+            for (int potentialDivisor = 1; potentialDivisor < potentialPerfectNumber; potentialDivisor++ ){
+                if (potentialPerfectNumber % potentialDivisor == 0){
+                    sumOfDivisors += potentialDivisor;
                 }
             }
-            if(result == start){
-                System.out.println(start + " est un nombre parfait");
+            if(sumOfDivisors == potentialPerfectNumber){
+                System.out.println(potentialPerfectNumber + " est un nombre parfait");
             }
         }
 
