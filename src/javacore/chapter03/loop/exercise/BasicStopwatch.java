@@ -12,7 +12,12 @@ public class BasicStopwatch {
         /*
          * Une boucle while qui itèrera 100x grâce à l'incrémentation de la variable i (à la fin de la boucle)
          */
-        while(seconds <= 61) {
+        while(seconds <= 60) {
+
+            /*
+             * Effectue une "pause" de 1000 millisecondes / 1 seconde
+             */
+            Thread.sleep(1000);
 
             if (seconds == 60){
                 minutes++;
@@ -23,11 +28,6 @@ public class BasicStopwatch {
                 hours++;
                 minutes=0;
             }
-
-            /*
-             * Effectue une "pause" de 1000 millisecondes / 1 seconde
-             */
-            Thread.sleep(1000);
 
             System.out.printf("%02d:%02d:%02d%n", hours, minutes, seconds);
 
