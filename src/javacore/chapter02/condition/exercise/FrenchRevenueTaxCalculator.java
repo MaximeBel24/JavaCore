@@ -13,6 +13,7 @@ public class FrenchRevenueTaxCalculator {
     }
 
     public static void main(String[] args) {
+
         //Tested values : 10 000, 22 000, 40 000, 100 000, 200 000
         double salary = 100000;
         System.out.println("Votre salaire annuel est de " + salary + "€.");
