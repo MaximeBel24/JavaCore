@@ -6,9 +6,9 @@ public class ArmstrongNumbers {
 
         int armstrongNumberCount = 1;
 
-        for (int number = 1; armstrongNumberCount <= 10; number++){
+        for (int potentialArmstrongNumber = 1; armstrongNumberCount <= 10; potentialArmstrongNumber++){
 
-            int saveNumber = number;
+            int saveNumber = potentialArmstrongNumber;
             int count;
 
             // Détermine le nombre de chiffre de number
@@ -18,7 +18,7 @@ public class ArmstrongNumbers {
 
 //            System.out.println("Il y a " + count + " chiffres dans " + number);
 
-            saveNumber = number;
+            saveNumber = potentialArmstrongNumber;
             int result = 0;
 
             // Calcule chaque chiffre de number par la puissance de son nombre chiffre
@@ -36,8 +36,8 @@ public class ArmstrongNumbers {
             }
 
             // Compare si le résultat des sommes des puissances est bien égale au nombre de base
-            if (result == number && !(number < 10)){
-                System.out.println(number + " est le " + armstrongNumberCount + (armstrongNumberCount > 1 ? "em" : "er") + " nombre Armstrong");
+            if (result == potentialArmstrongNumber && !(potentialArmstrongNumber < 10)){
+                System.out.println(potentialArmstrongNumber + " est le " + armstrongNumberCount + (armstrongNumberCount > 1 ? "em" : "er") + " nombre Armstrong");
                 armstrongNumberCount++;
             }
         }
