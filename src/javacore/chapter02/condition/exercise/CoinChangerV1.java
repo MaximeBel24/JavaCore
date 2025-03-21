@@ -6,7 +6,7 @@ public class CoinChangerV1 {
 
         int totalBill = 70;
 
-        int amountPaid = 363;
+        int amountPaid = 130;
 
         int difference = amountPaid - totalBill;
 
@@ -19,22 +19,22 @@ public class CoinChangerV1 {
 
             if (difference >= 50){
                 nbBanknote =  difference / 50;
-                System.out.print(nbBanknote + (nbBanknote > 1 ? " billets" : " billet") + " de 50€ ");
+                System.out.print(nbBanknote + " billet" + (nbBanknote > 1 ? "s" : "") + " de 50€ ");
                 difference -= nbBanknote * 50;
             }
             if (difference >= 20){
                 nbBanknote =  difference / 20;
-                System.out.print(nbBanknote + (nbBanknote > 1 ? " billets" : " billet") + " de 20€ ");
+                System.out.print(nbBanknote + " billet" + (nbBanknote > 1 ? "s" : "") + " de 20€ ");
                 difference -= nbBanknote * 20;
             }
             if (difference >= 10){
                 nbBanknote =  difference / 10;
-                System.out.print(nbBanknote + (nbBanknote > 1 ? " billets" : " billet") + " de 10€ ");
+                System.out.print(nbBanknote + " billet" + (nbBanknote > 1 ? "s" : "") + " de 10€ ");
                 difference -= nbBanknote * 10;
             }
             if (difference >= 2){
                 nbBanknote =  difference / 2;
-                System.out.print(nbBanknote + (nbBanknote > 1 ? " pièces" : " pièce") + " de 2€ ");
+                System.out.print(nbBanknote + " pièce" + (nbBanknote > 1 ? "s" : "") + " de 2€ ");
                 difference -= nbBanknote * 2;
             }
             if (difference == 1){
