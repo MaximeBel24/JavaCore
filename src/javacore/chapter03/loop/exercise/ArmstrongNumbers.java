@@ -23,13 +23,18 @@ public class ArmstrongNumbers {
 
             // Calcule chaque chiffre de number par la puissance de son nombre chiffre
             for (int divisor = 10; saveNumber > 0 ; saveNumber /= divisor){
+
                 int digitRaisedToThePower = saveNumber % 10;
                 int saveDigitRaisedToThePower = digitRaisedToThePower;
+
 //                System.out.println(digitRaisedToThePower + " est le chiffre à calculé");
+
                 for (int powerCount = 1; powerCount < digitCounter; powerCount++ ){
+
 //                    System.out.println("Tour "+ powerCount + ", Avant : " + digitRaisedToThePower);
                     digitRaisedToThePower *= saveDigitRaisedToThePower;
 //                    System.out.println("Tour "+ powerCount + ", Après : " + digitRaisedToThePower);
+
                 }
 
                 result += digitRaisedToThePower;
