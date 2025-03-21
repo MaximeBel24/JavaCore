@@ -9,14 +9,14 @@ public class ArmstrongNumbers {
         for (int potentialArmstrongNumber = 1; armstrongNumberCount <= 10; potentialArmstrongNumber++){
 
             int saveNumber = potentialArmstrongNumber;
-            int count;
+            int digitCounter;
 
             // Détermine le nombre de chiffre de number
-            for (count = 0; saveNumber > 0; count++){
+            for (digitCounter = 0; saveNumber > 0; digitCounter++){
                 saveNumber /= 10;
             }
 
-//            System.out.println("Il y a " + count + " chiffres dans " + number);
+//            System.out.println("Il y a " + digitCounter + " chiffres dans " + number);
 
             saveNumber = potentialArmstrongNumber;
             int result = 0;
@@ -26,7 +26,7 @@ public class ArmstrongNumbers {
                 int digitRaisedToThePower = saveNumber % 10;
                 int saveDigitRaisedToThePower = digitRaisedToThePower;
 //                System.out.println(digitRaisedToThePower + " est le chiffre à calculé");
-                for (int powerCount = 1; powerCount < count; powerCount++ ){
+                for (int powerCount = 1; powerCount < digitCounter; powerCount++ ){
 //                    System.out.println("Tour "+ powerCount + ", Avant : " + digitRaisedToThePower);
                     digitRaisedToThePower *= saveDigitRaisedToThePower;
 //                    System.out.println("Tour "+ powerCount + ", Après : " + digitRaisedToThePower);
