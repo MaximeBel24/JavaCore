@@ -22,8 +22,8 @@ public class CoinChangerV2 {
         int difference = amountPaid - totalBill;
 
         if (totalBill > amountPaid){
-
-            System.out.println("Vous n'avez pas payé le montant total.");
+            difference *= -1;
+            System.out.println("Vous n'avez pas payé le montant total. Il manque " + difference + "€");
 
         } else if (difference > totalDistributorAmount) {
 
@@ -95,13 +95,12 @@ public class CoinChangerV2 {
                 }
             }
 
-//            System.out.println(" ");
-//            System.out.println("Dans la machine il reste :");
-//            System.out.println(numberOf50Banknotes + " billets de 50€");
-//            System.out.println(numberOf20Banknotes + " billets de 20€");
-//            System.out.println(numberOf10Banknotes + " billets de 10€");
-//            System.out.println(numberOf2Coins + " pièces de 2€");
-//            System.out.println(numberOf1Coins + " pièces de 1€");
+            System.out.println("Dans la machine il reste :");
+            System.out.println(numberOf50Banknotes + " billets de 50€");
+            System.out.println(numberOf20Banknotes + " billets de 20€");
+            System.out.println(numberOf10Banknotes + " billets de 10€");
+            System.out.println(numberOf2Coins + " pièces de 2€");
+            System.out.println(numberOf1Coins + " pièces de 1€");
         }
     }
 }
