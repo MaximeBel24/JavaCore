@@ -4,16 +4,25 @@ public class CoinChangerV2 {
 
     public static void main(String[] args){
 
-        int numberOf50Banknotes = 3;
-        int numberOf20Banknotes = 10;
-        int numberOf10Banknotes = 4;
-        int numberOf2Coins = 6;
-        int numberOf1Coins = 20;
+        final int FIFTY_BANKNOTE_VALUE = 50;
+        final int TWENTY_BANKNOTE_VALUE = 20;
+        final int TEN_BANKNOTE_VALUE = 10;
+        final int TWO_COIN_VALUE = 2;
+        final int ONE_COIN_VALUE = 1;
+
+        int availableAmountOf50Banknotes = 3;
+        int availableAmountOf20Banknotes = 10;
+        int availableAmountOf10Banknotes = 4;
+        int availableAmountOf2Coins = 6;
+        int availableAmountOf1Coins = 20;
 
         // Calcul du montant maximal du distributeur
-        int totalDistributorAmount = 50 * numberOf50Banknotes + 20 * numberOf20Banknotes + 10 * numberOf10Banknotes + 2 * numberOf2Coins + numberOf1Coins;
-
-//        System.out.println("Total des liquidité du distributeur : " + totalDistributorAmount + "€");
+        int totalDistributorAmount =
+                FIFTY_BANKNOTE_VALUE * availableAmountOf50Banknotes +
+                TWENTY_BANKNOTE_VALUE * availableAmountOf20Banknotes +
+                TEN_BANKNOTE_VALUE * availableAmountOf10Banknotes +
+                TWO_COIN_VALUE * availableAmountOf2Coins +
+                availableAmountOf1Coins;
 
         int totalBill = 70;
 
@@ -32,75 +41,64 @@ public class CoinChangerV2 {
         } else {
             System.out.println("Monnaie rendu : ");
 
-            int nbBanknote;
+            int requiredBanknote;
 
-            if (difference >= 50 && numberOf50Banknotes > 0){
-                nbBanknote =  difference / 50;
-                if (nbBanknote <= numberOf50Banknotes){
-                    System.out.println("- " + nbBanknote + " billet" + (nbBanknote > 1 ? "s" : "") + " de 50€ ");
-                    difference -= nbBanknote * 50;
-                    numberOf50Banknotes -= nbBanknote;
-                } else {
-                    System.out.println("- " + numberOf50Banknotes + " billet" + (numberOf50Banknotes > 1 ? "s" : "") + " de 50€ ");
-                    difference -= numberOf50Banknotes * 50;
-                    numberOf50Banknotes -= numberOf50Banknotes;
+            if (difference >= FIFTY_BANKNOTE_VALUE && availableAmountOf50Banknotes > 0) {
+                requiredBanknote = difference / FIFTY_BANKNOTE_VALUE;
+                if (requiredBanknote > availableAmountOf50Banknotes) {
+                    requiredBanknote = availableAmountOf50Banknotes;
                 }
+                System.out.println("- " + requiredBanknote + " billet" + (requiredBanknote > 1 ? "s" : "") + " de 50€ ");
+                difference -= requiredBanknote * FIFTY_BANKNOTE_VALUE;
+                availableAmountOf50Banknotes -= requiredBanknote;
             }
-            if (difference >= 20 && numberOf20Banknotes > 0){
-                nbBanknote =  difference / 20;
-                if (nbBanknote <= numberOf20Banknotes){
-                    System.out.println("- " + nbBanknote + " billet" + (nbBanknote > 1 ? "s" : "") + " de 20€ ");
-                    difference -= nbBanknote * 20;
-                    numberOf20Banknotes -= nbBanknote;
-                } else {
-                    System.out.println("- " + numberOf20Banknotes + " billet" + (numberOf20Banknotes > 1 ? "s" : "") + " de 20€ ");
-                    difference -= numberOf20Banknotes * 20;
-                    numberOf20Banknotes -= numberOf20Banknotes;
+
+            if (difference >= TWENTY_BANKNOTE_VALUE && availableAmountOf20Banknotes > 0) {
+                requiredBanknote = difference / TWENTY_BANKNOTE_VALUE;
+                if (requiredBanknote > availableAmountOf20Banknotes) {
+                    requiredBanknote = availableAmountOf20Banknotes;
                 }
+                System.out.println("- " + requiredBanknote + " billet" + (requiredBanknote > 1 ? "s" : "") + " de 20€ ");
+                difference -= requiredBanknote * TWENTY_BANKNOTE_VALUE;
+                availableAmountOf20Banknotes -= requiredBanknote;
             }
-            if (difference >= 10 && numberOf10Banknotes > 0){
-                nbBanknote =  difference / 10;
-                if (nbBanknote <= numberOf10Banknotes){
-                    System.out.println("- " + nbBanknote + " billet" + (nbBanknote > 1 ? "s" : "") + " de 10€ ");
-                    difference -= nbBanknote * 10;
-                    numberOf10Banknotes -= nbBanknote;
-                } else {
-                    System.out.println("- " + numberOf10Banknotes + " billet" + (numberOf10Banknotes > 1 ? "s" : "") + " de 10€ ");
-                    difference -= numberOf10Banknotes * 10;
-                    numberOf10Banknotes -= numberOf10Banknotes;
+
+            if (difference >= TEN_BANKNOTE_VALUE && availableAmountOf10Banknotes > 0) {
+                requiredBanknote = difference / TEN_BANKNOTE_VALUE;
+                if (requiredBanknote > availableAmountOf10Banknotes) {
+                    requiredBanknote = availableAmountOf10Banknotes;
                 }
+                System.out.println("- " + requiredBanknote + " billet" + (requiredBanknote > 1 ? "s" : "") + " de 10€ ");
+                difference -= requiredBanknote * TEN_BANKNOTE_VALUE;
+                availableAmountOf10Banknotes -= requiredBanknote;
             }
-            if (difference >= 2 && numberOf2Coins > 0){
-                nbBanknote =  difference / 2;
-                if (nbBanknote <= numberOf2Coins){
-                    System.out.println("- " + nbBanknote + " pièce" + (nbBanknote > 1 ? "s" : "") + " de 2€ ");
-                    difference -= nbBanknote * 2;
-                    numberOf2Coins -= nbBanknote;
-                } else {
-                    System.out.println("- " + numberOf2Coins + " pièce" + (numberOf2Coins > 1 ? "s" : "") + " de 2€ ");
-                    difference -= numberOf2Coins * 2;
-                    numberOf2Coins -= numberOf2Coins;
+
+            if (difference >= TWO_COIN_VALUE && availableAmountOf2Coins > 0) {
+                requiredBanknote = difference / TWO_COIN_VALUE;
+                if (requiredBanknote > availableAmountOf2Coins) {
+                    requiredBanknote = availableAmountOf2Coins;
                 }
+                System.out.println("- " + requiredBanknote + " pièce" + (requiredBanknote > 1 ? "s" : "") + " de 2€ ");
+                difference -= requiredBanknote * TWO_COIN_VALUE;
+                availableAmountOf2Coins -= requiredBanknote;
             }
-            if (difference >= 1 && numberOf1Coins > 0){
-                nbBanknote =  difference / 1;
-                if (nbBanknote <= numberOf1Coins){
-                    System.out.println("- " + nbBanknote + " pièce" + (nbBanknote > 1 ? "s" : "") + " de 1€ ");
-                    difference -= nbBanknote * 1;
-                    numberOf1Coins -= nbBanknote;
-                } else {
-                    System.out.println("- " + numberOf1Coins + " pièce" + (numberOf1Coins > 1 ? "s" : "") + " de 1€ ");
-                    difference -= numberOf1Coins * 1;
-                    numberOf1Coins -= numberOf1Coins;
+
+            if (difference >= ONE_COIN_VALUE && availableAmountOf1Coins > 0) {
+                requiredBanknote = difference / ONE_COIN_VALUE;
+                if (requiredBanknote > availableAmountOf1Coins) {
+                    requiredBanknote = availableAmountOf1Coins;
                 }
+                System.out.println("- " + requiredBanknote + " pièce" + (requiredBanknote > 1 ? "s" : "") + " de 1€ ");
+                difference -= requiredBanknote * ONE_COIN_VALUE;
+                availableAmountOf1Coins -= requiredBanknote;
             }
 
 //            System.out.println("Dans la machine il reste :");
-//            System.out.println("- " +numberOf50Banknotes + " billets de 50€");
-//            System.out.println("- " +numberOf20Banknotes + " billets de 20€");
-//            System.out.println("- " +numberOf10Banknotes + " billets de 10€");
-//            System.out.println("- " +numberOf2Coins + " pièces de 2€");
-//            System.out.println("- " +numberOf1Coins + " pièces de 1€");
+//            System.out.println("- " +availableAmountOf50Banknotes + " billets de 50€");
+//            System.out.println("- " +availableAmountOf20Banknotes + " billets de 20€");
+//            System.out.println("- " +availableAmountOf10Banknotes + " billets de 10€");
+//            System.out.println("- " +availableAmountOf2Coins + " pièces de 2€");
+//            System.out.println("- " +availableAmountOf1Coins + " pièces de 1€");
         }
     }
 }
