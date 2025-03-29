@@ -17,7 +17,7 @@ public class ArmstrongNumbers {
             }
 
             saveNumber = potentialArmstrongNumber;
-            int result = 0;
+            int powerSumResult = 0;
 
             // Calcule chaque chiffre de number par la puissance de son nombre chiffre
             for (int divisor = 10; saveNumber > 0 ; saveNumber /= divisor){
@@ -31,11 +31,11 @@ public class ArmstrongNumbers {
 
                 }
 
-                result += digitRaisedToThePower;
+                powerSumResult += digitRaisedToThePower;
             }
 
             // Compare si le résultat des sommes des puissances est bien égale au nombre de base
-            if (result == potentialArmstrongNumber && !(potentialArmstrongNumber < 10)){
+            if (powerSumResult == potentialArmstrongNumber && potentialArmstrongNumber > 10){
                 System.out.println(potentialArmstrongNumber + " est le " + armstrongNumberCount + (armstrongNumberCount > 1 ? "em" : "er") + " nombre Armstrong");
                 armstrongNumberCount++;
             }
