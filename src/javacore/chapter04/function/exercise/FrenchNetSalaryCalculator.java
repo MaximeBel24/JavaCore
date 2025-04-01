@@ -98,7 +98,6 @@ public class FrenchNetSalaryCalculator {
     // Applique les charges sociales pour obtenir le salaire net imposable
     public static double applySocialCharges(double annualGrossSalary, double socialChargePercentage){
 
-
         double socialChargesAmount = annualGrossSalary * socialChargePercentage / 100;
         System.out.println("- Le montant de charges sociales est de " + Math.round(socialChargesAmount) + "€");
 
@@ -111,13 +110,14 @@ public class FrenchNetSalaryCalculator {
     // Applique l’abattement forfaitaire de 10% dans la limite du plafond fiscal
     public static double applyTaxAllowance(double annualNetSalary, double taxAllowancePercentage){
 
-        final int ABATEMENT_MAXIMUM = 12829; // Plafond de l'abatement en 2022
+        final int ABATEMENT_MAXIMUM = 12829; // Plafond de l'abattement en 2022
 
         double abatementAmount = annualNetSalary * taxAllowancePercentage / 100;
-        System.out.println("- Le montant de l'abattement est de " + Math.round(abatementAmount) + "€");
         if (abatementAmount > ABATEMENT_MAXIMUM){
             abatementAmount = ABATEMENT_MAXIMUM;
         }
+        System.out.println("- Le montant de l'abattement est de " + Math.round(abatementAmount) + "€");
+
 
         double annualNetSalaryAfterAbatement = annualNetSalary - abatementAmount;
         System.out.println("- Le salaire net imposable après l'abattement est de " + Math.round(annualNetSalaryAfterAbatement) + "€");
