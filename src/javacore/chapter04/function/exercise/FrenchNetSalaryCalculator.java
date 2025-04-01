@@ -47,7 +47,7 @@ public class FrenchNetSalaryCalculator {
         double finalAnnualNetSalary = applyRevenueTax(annualNetTaxableSalaryAfterAbatement);
 
         step(5, "Résultat");
-        System.out.println("Le salaire net annuel est de " + Math.round(finalAnnualNetSalary) + "€");
+        System.out.println(category + " : le salaire net annuel est de " + Math.round(finalAnnualNetSalary) + "€");
     }
 
     // Affiche une entête d'étape pour rendre la sortie console plus lisible
