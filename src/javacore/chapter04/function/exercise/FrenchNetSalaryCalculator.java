@@ -9,19 +9,11 @@ public class FrenchNetSalaryCalculator {
         final double HOURLY_GROSS_SALARY_AVERAGE = 22.50;
         final double HOURLY_GROSS_SALARY_WEALTH_THRESHOLD = 35.00;
 
-        space();
-
         displayFrenchNetSalary(HOURLY_GROSS_SALARY_SMIC, "SMIC Français en 2022");
-
-        space();
 
         displayFrenchNetSalary(HOURLY_GROSS_SALARY_MEDIAN, "Salaire Médian Français en 2022");
 
-        space();
-
         displayFrenchNetSalary(HOURLY_GROSS_SALARY_AVERAGE, "Salaire Moyen Français en 2022");
-
-        space();
 
         displayFrenchNetSalary(HOURLY_GROSS_SALARY_WEALTH_THRESHOLD, "Seuil de richesse Français en 2022");
 
@@ -29,6 +21,8 @@ public class FrenchNetSalaryCalculator {
 
     // Affiche les étapes de calcul du salaire net à partir d’un salaire horaire brut
     public static void displayFrenchNetSalary(double hourlyGrossSalary, String category){
+
+        space();
 
         System.out.println("Pour un salaire horaire de " + hourlyGrossSalary + "€ (" + category + ") :");
 
@@ -179,7 +173,7 @@ public class FrenchNetSalaryCalculator {
         double taxAmount = (taxableSalary * taxPercentage / 100) + taxBracketFull;
         double totalPercent = taxAmount * 100 / annualNetSalary;
         double finalNetSalary = annualNetSalary - taxAmount;
-        System.out.println("- Le taux d'imposition est de " + Math.round(totalPercent) + "%, soit " + Math.round(taxAmount) + "€.");
+        System.out.println("- Le taux d'imposition est d'environ " + Math.round(totalPercent) + "%, soit " + Math.round(taxAmount) + "€.");
         return finalNetSalary;
     }
 
