@@ -174,7 +174,7 @@ public class FrenchNetSalaryCalculator {
 
     // Calcule l’impôt sur le revenu et le salaire net à partir de la tranche applicable
     public static double calculateTaxAmount(int taxBracketIndex, double annualNetSalary,  int taxBracket, double taxBracketFull,int taxPercentage){
-        System.out.println("- " + annualNetSalary + "€ correspond à la " + taxBracketIndex +"eme tranche d'imposition.");
+        System.out.println("- " + Math.round(annualNetSalary) + "€ correspond à la " + taxBracketIndex +"eme tranche d'imposition.");
         double taxableSalary = annualNetSalary - taxBracket;
         double taxAmount = (taxableSalary * taxPercentage / 100) + taxBracketFull;
         double totalPercent = taxAmount * 100 / annualNetSalary;
