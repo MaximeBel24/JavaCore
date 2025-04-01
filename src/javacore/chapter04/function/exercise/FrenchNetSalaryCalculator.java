@@ -104,14 +104,15 @@ public class FrenchNetSalaryCalculator {
     // Applique l’abattement forfaitaire de 10% dans la limite du plafond fiscal
     public static double applyTaxAllowance(double annualNetSalary, double taxAllowancePercentage){
 
-        final int ABATEMENT_MAXIMUM = 12829; // Plafond de l'abattement en 2022
 
         double abatementAmount = annualNetSalary * taxAllowancePercentage / 100;
+
+        final int ABATEMENT_MAXIMUM = 12829; // Plafond de l'abattement en 2022
+
         if (abatementAmount > ABATEMENT_MAXIMUM){
             abatementAmount = ABATEMENT_MAXIMUM;
         }
         System.out.println("- Le montant de l'abattement est de " + Math.round(abatementAmount) + "€");
-
 
         double annualNetSalaryAfterAbatement = annualNetSalary - abatementAmount;
         System.out.println("- Le salaire net imposable après l'abattement est de " + Math.round(annualNetSalaryAfterAbatement) + "€");
