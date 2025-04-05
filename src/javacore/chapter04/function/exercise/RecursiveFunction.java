@@ -4,14 +4,15 @@ public class RecursiveFunction {
 
     public static void main(String[] args){
         int counter = 1;
-        displayNumberTo(10000, counter);
+        recursiveDisplayNumberTo(10000, counter);
     }
 
-    public static void displayNumberTo(int numberLimit,int numberCounter) {
+    public static void recursiveDisplayNumberTo(int numberLimit,int numberCounter) {
+        if (numberCounter > numberLimit){
+            return;
+        }
         System.out.println(numberCounter);
         numberCounter++;
-        if (numberCounter <= numberLimit){
-             displayNumberTo(numberLimit, numberCounter);
-        }
+        recursiveDisplayNumberTo(numberLimit, numberCounter);
     }
 }
