@@ -2,6 +2,7 @@ package javacore.chapter04.function.exercise;
 
 public class VariablesPermutation {
     public static void main(String[] args){
+
         System.out.println("Résultat de sum avec 2 arguments : " + sum(20, 5));
 
         System.out.println("Résultat de sum avec 3 arguments : " + sum(20, 5, 12));
