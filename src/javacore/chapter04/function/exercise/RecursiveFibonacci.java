@@ -25,11 +25,14 @@ public class RecursiveFibonacci {
 
         int result = firstTerm + secondTerm;
 
+        StringBuilder displayResult = new StringBuilder();
+        displayResult.append(result);
+        displayResult.append((result % 2 ==0) ? " (paire)" : "");
+
+        System.out.println(displayResult);
+
         if (result % 2 == 0){
-            System.out.println(result + " (paire) ");
             evenNbCounter++;
-        } else {
-            System.out.println(result);
         }
 
         firstTerm = secondTerm;
