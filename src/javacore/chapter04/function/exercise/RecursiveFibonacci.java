@@ -27,13 +27,13 @@ public class RecursiveFibonacci {
 
         StringBuilder displayResult = new StringBuilder();
         displayResult.append(result);
-        displayResult.append((result % 2 ==0) ? " (paire)" : "");
-
-        System.out.println(displayResult);
 
         if (result % 2 == 0){
+            displayResult.append(" (paire)");
             evenNbCounter++;
         }
+
+        System.out.println(displayResult);
 
         firstTerm = secondTerm;
         secondTerm = result;
