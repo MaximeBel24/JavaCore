@@ -4,22 +4,20 @@ public class ChessboardDrawing {
 
     public static void main(String[] args){
 
-        int chessboardSize = 8;
+        int chessboardSize = 5;
 
-        for (int row = 0; row < chessboardSize; row++ ){
+        for (int row = 1; row <= chessboardSize; row++) {
 
-            for (int column = 0; column < chessboardSize; column++){
-                if (row % 2 == 0 && column % 2 == 0){
-                    System.out.print("# ");
-                } else if (row % 2 != 0 && column % 2 != 0){
+            for (int column = 1; column <= chessboardSize; column++) {
+
+                if (row % 2 == column % 2) {
                     System.out.print("# ");
                 } else {
                     System.out.print(". ");
                 }
             }
 
-            System.out.println(" ");
-
+            System.out.println();
         }
     }
 }
