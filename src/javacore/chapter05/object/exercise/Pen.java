@@ -12,7 +12,8 @@ public class Pen {
     double weight;
 
     public void displayInformation() {
-        System.out.println("Nom: " + name +", Couleur: " + color + ", Prix: " + price + "€, Quantité: " + quantity + ", Fabricant: " + producer + ", Poids: " + weight + "g");
+        System.out.println(
+                "Nom: " + name + ", Couleur: " + color + ", Prix: " + price + "€, Quantité: " + quantity + ", Fabricant: " + producer + ", Poids: " + weight + "g");
     }
 
     public static void main(String[] args) {
