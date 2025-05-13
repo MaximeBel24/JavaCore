@@ -11,7 +11,7 @@ public class BasicStopwatchV2 {
 
             displayTime();
 
-            Thread.sleep(1);
+            Thread.sleep(1000);
 
             seconds++;
             if (seconds == 60){
