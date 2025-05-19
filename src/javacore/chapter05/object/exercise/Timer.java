@@ -15,20 +15,16 @@ public class Timer {
     }
 
     public void launch() throws InterruptedException {
-        while (!(hours == 0 && minutes == 0 && seconds == 0)) {
+        while (!(this.hours == 0 && this.minutes == 0 && this.seconds == 0)) {
             displayTime();
             Thread.sleep(1000);
-            if (seconds > 0) {
-                seconds--;
-            } else {
-                seconds = 59;
-                if (minutes > 0) {
-                    minutes--;
-                } else {
-                    minutes = 59;
-                    if (hours > 0) {
-                        hours--;
-                    }
+            this.seconds--;
+            if (this.seconds < 0) {
+                this.seconds = 59;
+                this.minutes--;
+                if (this.minutes < 0) {
+                    this.minutes = 59;
+                    this.hours--;
                 }
             }
         }
@@ -36,12 +32,24 @@ public class Timer {
         System.out.println("Fin du minuteur");
     }
 
+
     public void displayTime() {
-        System.out.printf("%s : %02d:%02d:%02d%n", name, hours, minutes, seconds);
+        System.out.printf("%s : %02d:%02d:%02d%n", this.name, this.hours, this.minutes, this.seconds);
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Timer stopwatch = new Timer("Boeuf Bourguignon", 5, 1, 3);
+        if (args.length != 4) {
+            System.out.println("Usage: java -jar Timer.jar <name> <hours> <minutes> <seconds>");
+            return;
+        }
+
+        String name = args[0];
+        int hours = Integer.parseInt(args[1]);
+        int minutes = Integer.parseInt(args[2]);
+        int seconds = Integer.parseInt(args[3]);
+
+        Timer stopwatch = new Timer(name, seconds, minutes, hours);
         stopwatch.launch();
     }
+
 }
