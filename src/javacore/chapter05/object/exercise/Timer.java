@@ -37,19 +37,29 @@ public class Timer {
         System.out.printf("%s : %02d:%02d:%02d%n", this.name, this.hours, this.minutes, this.seconds);
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        if (args.length != 4) {
-            System.out.println("Usage: java -jar Timer.jar <name> <hours> <minutes> <seconds>");
-            return;
+    public static void main(String[] args) {
+
+
+        try {
+            if (args.length != 4 || args[0].equals("-h") || args[0].equals("--help")) {
+                System.out.println("""
+                Usage: java -jar Timer.jar <name> <hours> <minutes> <seconds>
+                Example: java -jar Timer.jar "Pates Carbonara" 0 10 30
+                """);
+                return;
+            }
+
+            String name = args[0];
+            int hours = Integer.parseInt(args[1]);
+            int minutes = Integer.parseInt(args[2]);
+            int seconds = Integer.parseInt(args[3]);
+
+            Timer stopwatch = new Timer(name, seconds, minutes, hours);
+            stopwatch.launch();
+        } catch (NumberFormatException e) {
+            System.err.println("Erreur : les heures, minutes et secondes doivent etre des entiers.");
+        } catch (Exception e) {
+            System.err.println("Erreur inattendue : " + e.getMessage());
         }
-
-        String name = args[0];
-        int hours = Integer.parseInt(args[1]);
-        int minutes = Integer.parseInt(args[2]);
-        int seconds = Integer.parseInt(args[3]);
-
-        Timer stopwatch = new Timer(name, seconds, minutes, hours);
-        stopwatch.launch();
     }
-
 }
